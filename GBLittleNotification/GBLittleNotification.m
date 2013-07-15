@@ -354,12 +354,8 @@ static BOOL const kDefaultIsSticky =                                        NO;
             CGPoint tapLocation = [tapGestureRecognizer locationInView:self.notificationView];
             
             if (CGRectContainsPoint(self.notificationView.bounds, tapLocation)) {
-                NSLog(@"yes");
                 //dismiss
                 [self dismiss];
-            }
-            else{
-                NSLog(@"no");
             }
         }
     }
