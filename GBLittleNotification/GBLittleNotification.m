@@ -71,12 +71,14 @@ static BOOL const kDefaultIsSticky =                                        NO;
 
 
 
-@interface GBLittleNotification ()
+@interface GBLittleNotification () <UIGestureRecognizerDelegate>
 
 @property (assign, nonatomic, readwrite) BOOL                               isPresented;
 
 @property (strong, nonatomic) UIView                                        *backdrop;
 @property (assign, nonatomic) CGRect                                        restingFrame;
+
+@property (strong, nonatomic) UITapGestureRecognizer                        *tapGestureRecognizer;
 
 @end
 
@@ -159,6 +161,9 @@ static BOOL const kDefaultIsSticky =                                        NO;
     notification.backdrop = [[UIView alloc] initWithFrame:notification.targetViewForPresentation.bounds];
     notification.backdrop.backgroundColor = notification.backdropColor;
     notification.backdrop.userInteractionEnabled = notification.shouldBlockInteractionWhileDisplayed;
+    
+    //attach gesture recognizer
+    [notification.notificationView addGestureRecognizer:notification.tapGestureRecognizer];
 
     [notification.targetViewForPresentation addSubview:notification.backdrop];
     [notification.targetViewForPresentation addSubview:notification.notificationView];
@@ -223,6 +228,9 @@ static BOOL const kDefaultIsSticky =                                        NO;
     
     //prep animations
     if (notification.willDismissBlock) notification.willDismissBlock(notification.notificationView, notification.restingFrame, notification.targetViewForPresentation, notification.backdrop);
+    
+    //remove gesture recognizer
+    [notification.notificationView removeGestureRecognizer:notification.tapGestureRecognizer];
     
     if (animated) {
         //do animation
@@ -307,6 +315,10 @@ static BOOL const kDefaultIsSticky =                                        NO;
         self.willDismissBlock = stencil.willDismissBlock;
         self.dismissAnimation = stencil.dismissAnimation;
         self.didDismissBlock = stencil.didDismissBlock;
+        
+        //create the tap gesture recognizer
+        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_didTap:)];
+        self.tapGestureRecognizer.delegate = self;
     }
     
     return self;
@@ -322,6 +334,36 @@ static BOOL const kDefaultIsSticky =                                        NO;
     [[GBLittleNotificationManager sharedManager] _dismissNotification:self animated:YES];
 }
 
+#pragma mark - Gesture
+
+//we don't want out touch to get registered in case the user tapped on a control
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:UIControl.class]) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
+-(void)_didTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+    if (tapGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        //only handle tap if we shoud dismiss when tapped
+        if (self.shouldDismissWhenTapped) {
+            //if the tap is on the view
+            CGPoint tapLocation = [tapGestureRecognizer locationInView:self.notificationView];
+            
+            if (CGRectContainsPoint(self.notificationView.bounds, tapLocation)) {
+                NSLog(@"yes");
+                //dismiss
+                [self dismiss];
+            }
+            else{
+                NSLog(@"no");
+            }
+        }
+    }
+}
 
 @end
 
@@ -330,8 +372,5 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
     return [[GBLittleNotificationManager sharedManager] stencilForIdentifier:identifier];
 }
 
-
-//foo don't forget the gesture recognizer for the dismiss tap
-//foo the second time round it doesn't work properly, the red box doesnt appear
 
 
