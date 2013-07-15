@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A3BEB7F1793E15300BA7BE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3BEB7E1793E15300BA7BE1 /* Foundation.framework */; };
+		8A3BEB901793EEFD00BA7BE1 /* GBLittleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BEB8D1793EEFD00BA7BE1 /* GBLittleNotification.m */; };
+		8A3BEB911793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BEB8F1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,10 @@
 		8A3BEB7B1793E15300BA7BE1 /* libGBLittleNotification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBLittleNotification.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3BEB7E1793E15300BA7BE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A3BEB821793E15300BA7BE1 /* GBLittleNotification-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBLittleNotification-Prefix.pch"; sourceTree = "<group>"; };
+		8A3BEB8C1793EEFD00BA7BE1 /* GBLittleNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLittleNotification.h; sourceTree = "<group>"; };
+		8A3BEB8D1793EEFD00BA7BE1 /* GBLittleNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBLittleNotification.m; sourceTree = "<group>"; };
+		8A3BEB8E1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GBLittleNotificationStencil+Presets.h"; sourceTree = "<group>"; };
+		8A3BEB8F1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GBLittleNotificationStencil+Presets.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,10 @@
 		8A3BEB801793E15300BA7BE1 /* GBLittleNotification */ = {
 			isa = PBXGroup;
 			children = (
+				8A3BEB8C1793EEFD00BA7BE1 /* GBLittleNotification.h */,
+				8A3BEB8D1793EEFD00BA7BE1 /* GBLittleNotification.m */,
+				8A3BEB8E1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.h */,
+				8A3BEB8F1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m */,
 				8A3BEB811793E15300BA7BE1 /* Supporting Files */,
 			);
 			path = GBLittleNotification;
@@ -132,6 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3BEB901793EEFD00BA7BE1 /* GBLittleNotification.m in Sources */,
+				8A3BEB911793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
