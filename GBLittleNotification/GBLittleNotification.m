@@ -316,6 +316,8 @@ static BOOL const kDefaultIsSticky =                                        NO;
         self.dismissAnimation = stencil.dismissAnimation;
         self.didDismissBlock = stencil.didDismissBlock;
         
+        self.didTapBlock = stencil.didTapBlock;
+        
         //create the tap gesture recognizer
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_didTap:)];
         self.tapGestureRecognizer.delegate = self;
@@ -334,9 +336,15 @@ static BOOL const kDefaultIsSticky =                                        NO;
     [[GBLittleNotificationManager sharedManager] _dismissNotification:self animated:YES];
 }
 
+-(void)presentWithTapHandler:(GBLittleNotificationSimpleBlock)tapHandler {
+    self.didTapBlock = tapHandler;
+    
+    [[GBLittleNotificationManager sharedManager] _presentNotification:self];
+}
+
 #pragma mark - Gesture
 
-//we don't want out touch to get registered in case the user tapped on a control
+//we don't want our touch to get registered in case the user tapped on a control
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([touch.view isKindOfClass:UIControl.class]) {
         return NO;
@@ -348,12 +356,14 @@ static BOOL const kDefaultIsSticky =                                        NO;
 
 -(void)_didTap:(UITapGestureRecognizer *)tapGestureRecognizer {
     if (tapGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        //only handle tap if we shoud dismiss when tapped
-        if (self.shouldDismissWhenTapped) {
-            //if the tap is on the view
-            CGPoint tapLocation = [tapGestureRecognizer locationInView:self.notificationView];
+        //if the tap is on the notification view
+        CGPoint tapLocation = [tapGestureRecognizer locationInView:self.notificationView];
+        
+        if (CGRectContainsPoint(self.notificationView.bounds, tapLocation)) {
+            //call on tap code
+            if (self.didTapBlock) self.didTapBlock();
             
-            if (CGRectContainsPoint(self.notificationView.bounds, tapLocation)) {
+            if (self.shouldDismissWhenTapped) {
                 //dismiss
                 [self dismiss];
             }

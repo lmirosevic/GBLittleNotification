@@ -15,6 +15,7 @@ typedef enum {
 } GBLittleNotificationDisplayEdge;
 
 typedef void(^GBLittleNotificationAnimationBlock)(UIView *notificationView, CGRect restingFrame, UIView *targetViewForPresentation, UIView *backdrop);
+typedef void(^GBLittleNotificationSimpleBlock)(void);
 
 @interface GBLittleNotificationStencil : NSObject
 
@@ -29,6 +30,8 @@ typedef void(^GBLittleNotificationAnimationBlock)(UIView *notificationView, CGRe
 @property (copy, nonatomic) GBLittleNotificationAnimationBlock              willDismissBlock;
 @property (copy, nonatomic) GBLittleNotificationAnimationBlock              dismissAnimation;
 @property (copy, nonatomic) GBLittleNotificationAnimationBlock              didDismissBlock;
+
+@property (copy, nonatomic) GBLittleNotificationSimpleBlock                 didTapBlock;
 
 @property (assign, nonatomic) BOOL                                          shouldDismissWhenTapped;                    //defaults to YES
 @property (assign, nonatomic) BOOL                                          shouldBlockInteractionWhileDisplayed;       //defaults to NO
@@ -56,6 +59,8 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
 
 -(void)present;
 -(void)dismiss;
+
+-(void)presentWithTapHandler:(GBLittleNotificationSimpleBlock)tapHandler;
 
 +(GBLittleNotification *)littleNotificationWithIdentifier:(NSString *)notificationIdentifier;//if you configured this type of notification before, you will get one of those objects from here
 
