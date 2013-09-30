@@ -50,6 +50,24 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
 
 @end
 
+@protocol GBLittleNotificationManagerDelegate;
+@class GBLittleNotification;
+
+@interface GBLittleNotificationManager : NSObject
+
+@property (weak, nonatomic) id<GBLittleNotificationManagerDelegate>         globalDelegate;
+
++(GBLittleNotificationManager *)sharedManager;
+
+@end
+
+@protocol GBLittleNotificationManagerDelegate <NSObject>
+@optional
+
+-(void)didTapOnLittleNotification:(GBLittleNotification *)notification withIdentifier:(NSString *)notificationIdentifier;
+
+@end
+
 @protocol GBLittleNotificationDelegate;
 
 @interface GBLittleNotification : GBLittleNotificationStencil

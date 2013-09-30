@@ -85,10 +85,6 @@ static BOOL const kDefaultIsSticky =                                        NO;
 
 
 
-@interface GBLittleNotificationManager : NSObject
-
-@end
-
 @interface GBLittleNotificationManager ()
 
 @property (strong, nonatomic) NSMutableDictionary                           *stencils;
@@ -362,6 +358,11 @@ static BOOL const kDefaultIsSticky =                                        NO;
         if (CGRectContainsPoint(self.notificationView.bounds, tapLocation)) {
             //call on tap code
             if (self.didTapBlock) self.didTapBlock();
+            
+            //notify delegate
+            if ([[GBLittleNotificationManager sharedManager].globalDelegate respondsToSelector:@selector(didTapOnLittleNotification:withIdentifier:)]) {
+                [[GBLittleNotificationManager sharedManager].globalDelegate didTapOnLittleNotification:self withIdentifier:self.notificationIdentifier];
+            }
             
             if (self.shouldDismissWhenTapped) {
                 //dismiss
