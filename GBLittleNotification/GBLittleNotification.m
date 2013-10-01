@@ -210,9 +210,14 @@ static BOOL const kDefaultIsSticky =                                        NO;
     //set its state
     notification.isPresented = YES;
     
-    //did present
+    //delegate
     if ([notification.delegate respondsToSelector:@selector(littleNotificationDidPresent:)]) {
         [notification.delegate littleNotificationDidPresent:notification];
+    }
+    
+    //global delegate
+    if ([[GBLittleNotificationManager sharedManager].globalDelegate respondsToSelector:@selector(didPresentLittleNotification:withIdentifier:)]) {
+        [[GBLittleNotificationManager sharedManager].globalDelegate didPresentLittleNotification:notification withIdentifier:notification.notificationIdentifier];
     }
 }
 

@@ -64,6 +64,7 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
 @protocol GBLittleNotificationManagerDelegate <NSObject>
 @optional
 
+-(void)didPresentLittleNotification:(GBLittleNotification *)notification withIdentifier:(NSString *)notificationIdentifier;
 -(void)didTapOnLittleNotification:(GBLittleNotification *)notification withIdentifier:(NSString *)notificationIdentifier;
 
 @end
