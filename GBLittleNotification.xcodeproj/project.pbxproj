@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A03E04B185B0A6D00AD074C /* GBLittleNotificationStencil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A03E04A185B0A6D00AD074C /* GBLittleNotificationStencil.m */; };
+		8A03E04E185B0AC400AD074C /* GBLittleNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A03E04D185B0AC400AD074C /* GBLittleNotificationManager.m */; };
 		8A3BEB7F1793E15300BA7BE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3BEB7E1793E15300BA7BE1 /* Foundation.framework */; };
 		8A3BEB901793EEFD00BA7BE1 /* GBLittleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BEB8D1793EEFD00BA7BE1 /* GBLittleNotification.m */; };
 		8A3BEB911793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BEB8F1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m */; };
@@ -25,6 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A03E049185B0A6D00AD074C /* GBLittleNotificationStencil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLittleNotificationStencil.h; sourceTree = "<group>"; };
+		8A03E04A185B0A6D00AD074C /* GBLittleNotificationStencil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBLittleNotificationStencil.m; sourceTree = "<group>"; };
+		8A03E04C185B0AC400AD074C /* GBLittleNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLittleNotificationManager.h; sourceTree = "<group>"; };
+		8A03E04D185B0AC400AD074C /* GBLittleNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBLittleNotificationManager.m; sourceTree = "<group>"; };
+		8A03E04F185B0B1F00AD074C /* GBLittleNotificationTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBLittleNotificationTypes.h; sourceTree = "<group>"; };
 		8A3BEB7B1793E15300BA7BE1 /* libGBLittleNotification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBLittleNotification.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3BEB7E1793E15300BA7BE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A3BEB821793E15300BA7BE1 /* GBLittleNotification-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBLittleNotification-Prefix.pch"; sourceTree = "<group>"; };
@@ -76,6 +83,11 @@
 			children = (
 				8A3BEB8C1793EEFD00BA7BE1 /* GBLittleNotification.h */,
 				8A3BEB8D1793EEFD00BA7BE1 /* GBLittleNotification.m */,
+				8A03E049185B0A6D00AD074C /* GBLittleNotificationStencil.h */,
+				8A03E04A185B0A6D00AD074C /* GBLittleNotificationStencil.m */,
+				8A03E04C185B0AC400AD074C /* GBLittleNotificationManager.h */,
+				8A03E04D185B0AC400AD074C /* GBLittleNotificationManager.m */,
+				8A03E04F185B0B1F00AD074C /* GBLittleNotificationTypes.h */,
 				8A3BEB8E1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.h */,
 				8A3BEB8F1793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m */,
 				8A3BEB811793E15300BA7BE1 /* Supporting Files */,
@@ -143,7 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3BEB901793EEFD00BA7BE1 /* GBLittleNotification.m in Sources */,
+				8A03E04E185B0AC400AD074C /* GBLittleNotificationManager.m in Sources */,
 				8A3BEB911793EEFD00BA7BE1 /* GBLittleNotificationStencil+Presets.m in Sources */,
+				8A03E04B185B0A6D00AD074C /* GBLittleNotificationStencil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +260,7 @@
 				8A3BEB8B1793E15300BA7BE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
