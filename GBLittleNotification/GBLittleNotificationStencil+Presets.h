@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Goonbee. All rights reserved.
 //
 
-#import "GBLittleNotification.h"
+#import "GBLittleNotificationStencil.h"
 
 typedef enum {
     GBLittleNotificationPresentAnimationPresetSlideLeft, 
