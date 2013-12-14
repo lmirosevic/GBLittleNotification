@@ -14,6 +14,8 @@
 #import "GBLittleNotificationStencil+Presets.h"
 #import "GBLittleNotificationManager.h"
 
+#pragma mark - Public
+
 @protocol GBLittleNotificationDelegate;
 
 @interface GBLittleNotification : GBLittleNotificationStencil
@@ -40,7 +42,9 @@
 
 @end
 
-@interface GBLittleNotification (Private)
+#pragma mark - Private
+
+@interface GBLittleNotification ()
 
 @property (strong, nonatomic) UIView                                        *_backdrop;
 @property (strong, nonatomic) UITapGestureRecognizer                        *_tapGestureRecognizer;

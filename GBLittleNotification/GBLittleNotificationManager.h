@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark - Public
+
 @protocol GBLittleNotificationManagerDelegate;
 
 @class GBLittleNotification;
@@ -31,7 +33,9 @@
 
 @end
 
-@interface GBLittleNotificationManager (Private)
+#pragma mark - Private
+
+@interface GBLittleNotificationManager ()
 
 -(void)_presentNotification:(GBLittleNotification *)notification;
 -(void)_dismissNotification:(GBLittleNotification *)notification animated:(BOOL)animated;

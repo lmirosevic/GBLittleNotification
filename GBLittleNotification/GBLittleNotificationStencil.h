@@ -11,6 +11,8 @@
 
 #import "GBLittleNotificationTypes.h"
 
+#pragma mark - Public
+
 @interface GBLittleNotificationStencil : NSObject
 
 @property (copy, nonatomic, readonly) NSString                              *notificationIdentifier;                    //so you don't have to recreate them all the time
@@ -44,7 +46,9 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
 
 @end
 
-@interface GBLittleNotificationStencil (Private)
+#pragma mark - Private
+
+@interface GBLittleNotificationStencil ()
 
 +(GBLittleNotificationStencil *)_stencilWithIdentifier:(NSString *)notificationIdentifier;
 
