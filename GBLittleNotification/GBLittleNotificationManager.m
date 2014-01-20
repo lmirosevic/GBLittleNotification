@@ -87,6 +87,7 @@
     //attach gesture recognizer
     [notification.notificationView addGestureRecognizer:notification._tapGestureRecognizer];
     
+    //add the views to the targetview
     [notification.targetViewForPresentation addSubview:notification._backdrop];
     [notification.targetViewForPresentation addSubview:notification.notificationView];
     
