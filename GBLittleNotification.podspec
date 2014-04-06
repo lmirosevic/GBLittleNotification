@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GBLittleNotification"
-  s.version      = "1.1.3"
+  s.version      = "1.1.4"
   s.summary      = "Little library for showing transient in-app popups. Supports fully customisable animations, styling and interactions."
   s.homepage     = "https://github.com/lmirosevic/GBLittleNotification"
   s.license      = 'Apache License, Version 2.0'
