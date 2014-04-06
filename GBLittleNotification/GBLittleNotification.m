@@ -23,6 +23,8 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
 
 @implementation GBLittleNotification
 
+@synthesize notificationIdentifier;
+
 #pragma mark - CA
 
 -(BOOL)_isPresented {
@@ -52,7 +54,7 @@ GBLittleNotificationStencil * GBLittleNotificationStencilFactory(NSString *ident
         self.displayEdge = stencil.displayEdge;
         self.isSticky = stencil.isSticky;
         self.targetViewForPresentation = stencil.targetViewForPresentation;
-
+        
         self.notificationView = stencil.notificationView;
         
         self.willPresentBlock = stencil.willPresentBlock;
